@@ -33,6 +33,166 @@ void clearMatrix() {
   }
 }
 
+
+// the loop function runs over and over again forever
+void loop() {
+
+  time = millis();
+  if ((time-next_time) > swap_time) {
+    state++;
+    if (state > 7) state = 0;
+    next_time = time;
+  }
+
+  switch(state) {
+    case 0: drawN(); break;
+    case 1: drawT(); break;
+    case 2: drawP(); break;
+    case 3: drawE(); break;
+    //case 4: drawF(); break;
+    //case 5: drawC(); break;
+    //case 6: drawT(); break;
+    default: drawSwipe(); break;
+  }
+
+}
+
+void drawSwipe() {
+  int test = (millis()/60)%12;
+  if (test > 6) test = 11 - test;
+  digitalWrite(test+8, HIGH);
+  delay(microdelay);
+  clearMatrix();
+}
+
+void drawC() {
+  digitalWrite(8, HIGH);
+  digitalWrite(2, HIGH);
+  digitalWrite(7, HIGH);
+  delay(microdelay);
+  clearMatrix();
+  
+  digitalWrite(9, HIGH);
+  delay(microdelay);
+  clearMatrix();
+  
+  digitalWrite(10, HIGH);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, HIGH);
+  digitalWrite(5, HIGH);
+  digitalWrite(6, HIGH);
+  delay(microdelay);
+  clearMatrix();
+  
+  digitalWrite(11, HIGH);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, HIGH);
+  digitalWrite(5, HIGH);
+  digitalWrite(6, HIGH);
+  delay(microdelay);
+  clearMatrix();
+
+  digitalWrite(12, HIGH);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, HIGH);
+  digitalWrite(5, HIGH);
+  digitalWrite(6, HIGH);
+  delay(microdelay);
+  clearMatrix();
+  
+  digitalWrite(13, HIGH);
+  digitalWrite(2, HIGH);
+  digitalWrite(4, HIGH);
+  digitalWrite(5, HIGH);
+  digitalWrite(7, HIGH);
+  delay(microdelay);
+  clearMatrix();
+}
+
+void drawE() {
+  digitalWrite(8, HIGH);
+  delay(microdelay);
+  clearMatrix();
+  
+  digitalWrite(9, HIGH);
+  delay(microdelay);
+  clearMatrix();
+  
+  digitalWrite(10, HIGH);
+  digitalWrite(3, HIGH);
+  digitalWrite(5, HIGH);
+  digitalWrite(6, HIGH);
+  delay(microdelay);
+  clearMatrix();
+  
+  digitalWrite(11, HIGH);
+  digitalWrite(3, HIGH);
+  digitalWrite(5, HIGH);
+  digitalWrite(6, HIGH);
+  delay(microdelay);
+  clearMatrix();
+
+  digitalWrite(12, HIGH);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, HIGH);
+  digitalWrite(5, HIGH);
+  digitalWrite(6, HIGH);
+  delay(microdelay);
+  clearMatrix();
+  
+  digitalWrite(13, HIGH);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, HIGH);
+  digitalWrite(5, HIGH);
+  digitalWrite(6, HIGH);
+  delay(microdelay);
+  clearMatrix();
+}
+
+void drawF() {
+  digitalWrite(8, HIGH);
+  delay(microdelay);
+  clearMatrix();
+  
+  digitalWrite(9, HIGH);
+  delay(microdelay);
+  clearMatrix();
+  
+  digitalWrite(10, HIGH);
+  digitalWrite(3, HIGH);
+  digitalWrite(5, HIGH);
+  digitalWrite(6, HIGH);
+  digitalWrite(7, HIGH);
+  delay(microdelay);
+  clearMatrix();
+  
+  digitalWrite(11, HIGH);
+  digitalWrite(3, HIGH);
+  digitalWrite(5, HIGH);
+  digitalWrite(6, HIGH);
+  digitalWrite(7, HIGH);
+  delay(microdelay);
+  clearMatrix();
+
+  digitalWrite(12, HIGH);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, HIGH);
+  digitalWrite(5, HIGH);
+  digitalWrite(6, HIGH);
+  digitalWrite(7, HIGH);
+  delay(microdelay);
+  clearMatrix();
+  
+  digitalWrite(13, HIGH);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, HIGH);
+  digitalWrite(5, HIGH);
+  digitalWrite(6, HIGH);
+  digitalWrite(7, HIGH);
+  delay(microdelay);
+  clearMatrix();
+}
+
 void drawN() {
   digitalWrite(8, HIGH);
   delay(microdelay);
@@ -70,6 +230,48 @@ void drawN() {
   clearMatrix();
   
   digitalWrite(13, HIGH);
+  delay(microdelay);
+  clearMatrix();
+}
+
+void drawP() {
+  digitalWrite(8, HIGH);
+  delay(microdelay);
+  clearMatrix();
+  
+  digitalWrite(9, HIGH);
+  delay(microdelay);
+  clearMatrix();
+  
+  digitalWrite(10, HIGH);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, HIGH);
+  digitalWrite(6, HIGH);
+  digitalWrite(7, HIGH);
+  delay(microdelay);
+  clearMatrix();
+  
+  digitalWrite(11, HIGH);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, HIGH);
+  digitalWrite(6, HIGH);
+  digitalWrite(7, HIGH);
+  delay(microdelay);
+  clearMatrix();
+
+  digitalWrite(12, HIGH);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, HIGH);
+  digitalWrite(6, HIGH);
+  digitalWrite(7, HIGH);
+  delay(microdelay);
+  clearMatrix();
+  
+  digitalWrite(13, HIGH);
+  digitalWrite(2, HIGH);
+  digitalWrite(5, HIGH);
+  digitalWrite(6, HIGH);
+  digitalWrite(7, HIGH);
   delay(microdelay);
   clearMatrix();
 }
@@ -118,107 +320,4 @@ void drawT() {
   digitalWrite(7, HIGH);
   delay(microdelay);
   clearMatrix();
-}
-
-
-void drawP() {
-  digitalWrite(8, HIGH);
-  delay(microdelay);
-  clearMatrix();
-  
-  digitalWrite(9, HIGH);
-  delay(microdelay);
-  clearMatrix();
-  
-  digitalWrite(10, HIGH);
-  digitalWrite(3, HIGH);
-  digitalWrite(4, HIGH);
-  digitalWrite(6, HIGH);
-  digitalWrite(7, HIGH);
-  delay(microdelay);
-  clearMatrix();
-  
-  digitalWrite(11, HIGH);
-  digitalWrite(3, HIGH);
-  digitalWrite(4, HIGH);
-  digitalWrite(6, HIGH);
-  digitalWrite(7, HIGH);
-  delay(microdelay);
-  clearMatrix();
-
-  digitalWrite(12, HIGH);
-  digitalWrite(3, HIGH);
-  digitalWrite(4, HIGH);
-  digitalWrite(6, HIGH);
-  digitalWrite(7, HIGH);
-  delay(microdelay);
-  clearMatrix();
-  
-  digitalWrite(13, HIGH);
-  digitalWrite(2, HIGH);
-  digitalWrite(5, HIGH);
-  digitalWrite(6, HIGH);
-  digitalWrite(7, HIGH);
-  delay(microdelay);
-  clearMatrix();
-}
-
-void drawE() {
-  digitalWrite(8, HIGH);
-  delay(microdelay);
-  clearMatrix();
-  
-  digitalWrite(9, HIGH);
-  delay(microdelay);
-  clearMatrix();
-  
-  digitalWrite(10, HIGH);
-  digitalWrite(3, HIGH);
-  digitalWrite(5, HIGH);
-  digitalWrite(6, HIGH);
-  delay(microdelay);
-  clearMatrix();
-  
-  digitalWrite(11, HIGH);
-  digitalWrite(3, HIGH);
-  digitalWrite(5, HIGH);
-  digitalWrite(6, HIGH);
-  delay(microdelay);
-  clearMatrix();
-
-  digitalWrite(12, HIGH);
-  digitalWrite(3, HIGH);
-  digitalWrite(4, HIGH);
-  digitalWrite(5, HIGH);
-  digitalWrite(6, HIGH);
-  delay(microdelay);
-  clearMatrix();
-  
-  digitalWrite(13, HIGH);
-  digitalWrite(3, HIGH);
-  digitalWrite(4, HIGH);
-  digitalWrite(5, HIGH);
-  digitalWrite(6, HIGH);
-  delay(microdelay);
-  clearMatrix();
-}
-
-// the loop function runs over and over again forever
-void loop() {
-
-  time = millis();
-  if ((time-next_time) > swap_time) {
-    state++;
-    if (state > 6) state = 0;
-    next_time = time;
-  }
-
-  switch(state) {
-    case 0: drawN(); break;
-    case 1: drawT(); break;
-    case 2: drawP(); break;
-    case 3: drawE(); break;
-    default: clearMatrix(); break;
-  }
-  
 }
